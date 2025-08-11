@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
 
@@ -33,10 +34,20 @@ useEffect(() => {
 })
 
   return (
-    <div>
-      <h1>{minute} : {seconde}</h1>
+    <div className="container">
+    <h1 style={{
+    width: '200px',
+    height: '200px',
+    border: '5px solid #ffffffff',
+    borderRadius: '50%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '0 auto',
+  }}>{minute.toString().padStart(2, '0')} : {seconde.toString().padStart(2, '0')}
+  </h1>
       <h3>{work ? 'Working time.' : 'Rest time !'}</h3>
-      <h3>{cycle%4==0 && work==false ? 'Take a bigger rest.' : "Don't give up !"}</h3>
+      <h3>{cycle%4==0 && work==false ? 'Take a longer break.' : ""}</h3>
       <h3>Cycle number {cycle}</h3>
     </div>
   );
