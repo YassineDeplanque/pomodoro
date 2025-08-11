@@ -5,6 +5,7 @@ function App() {
 const [seconde, setSeconde] = useState(59);
 const [minute, setMinute] = useState(25);
 const [work, setWork] = useState(true);
+const [cycle, setCycle] = useState(1);
 
 useEffect(() => {
   const interval = setInterval(() => {
@@ -21,6 +22,7 @@ useEffect(() => {
       setMinute(25);
       setSeconde(59);
       setWork(true)
+      setCycle(cycle + 1);
     }
   }, 1000);
   return () => clearInterval(interval);
@@ -29,6 +31,8 @@ useEffect(() => {
   return (
     <div>
       <h1>{minute} : {seconde}</h1>
+      <h3>{work ? 'Working time.' : 'Rest time !'}</h3>
+      <h3>Cycle number {cycle}</h3>
     </div>
   );
 }
